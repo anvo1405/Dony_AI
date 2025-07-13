@@ -1,118 +1,104 @@
-import { Box, Grid, Link, Typography } from '@mui/material'
+import { Box, Button, Divider, Grid, IconButton, Link, TextField, Typography } from '@mui/material'
 
-interface IDefaultFooterProps {
-  hasDivider?: boolean
-}
-
-const DefaultFooter = ({ hasDivider = true }: IDefaultFooterProps) => {
-  const factories = [
-    { name: 'Nhà Máy Miền Nam', address: 'A2- KCN Định Quán, Đồng Nai' },
-    { name: 'Nhà Máy Miền Bắc', address: 'Vân Du – Thạch Thành, Thanh Hóa' }
-  ]
-
-  const storeSystems = [
-    {
-      city: 'Hà Nội',
-      address: 'Số 10, Ngõ 30, Nguyễn Thị Định, P. Trung Hoà, Cầu Giấy, Hà Nội – 0385162929'
-    },
-    {
-      city: 'TP. Hồ Chí Minh',
-      address: '488/4 Cộng Hòa P.13 quận Tân Bình – 0932181068'
-    },
-    {
-      city: 'Đà Nẵng',
-      address: '114 Trần Thủ Độ, Khuê Trung, Cẩm Lệ, Đà Nẵng – 0343 642 299'
-    },
-    { city: 'Cần Thơ', address: '164D Trần Ngọc Quế Cần Thơ – 0379 508 899' }
-  ]
-
-  const support = [
-    { label: 'THÔNG TIN LIÊN HỆ', link: '/' },
-    { label: 'CHÍNH SÁCH ĐỔI TRẢ', link: '/' },
-    { label: 'HƯỚNG DẪN MUA HÀNG', link: '/' },
-    { label: 'CHÍNH SÁCH GIAO HÀNG', link: '/' },
-    { label: 'CHÍNH SÁCH THANH TOÁN', link: '/' }
-  ]
-
+const DefaultFooter = () => {
   return (
     <Box
       component='footer'
       sx={{
-        borderTop: hasDivider ? '1px solid #EFECEC' : 'none',
-        px: { xs: 2, sm: 4, md: 10, lg: 16 },
-        py: { xs: 4, sm: 6, md: 8 },
-        backgroundColor: '#fff'
+        px: 20,
+        backgroundColor: 'white',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 4,
+        mt: 8
       }}
     >
-      <Grid container spacing={4}>
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-          <Box display='flex' flexDirection='column' gap={4}>
-            <Box display='flex' flexDirection='column' gap={2}>
-              <Typography fontSize={18} fontWeight={600}>
-                NHÀ MÁY SẢN XUẤT
-              </Typography>
-              {factories.map((factory, idx) => (
-                <Box key={idx}>
-                  <Typography fontSize={14} fontWeight={500}>
-                    {factory.name}
-                  </Typography>
-                  <Typography fontSize={14}>{factory.address}</Typography>
-                </Box>
-              ))}
-            </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+        <Typography fontWeight={700} fontSize={48}>
+          Dony AI
+        </Typography>
+        <Divider sx={{ flexGrow: 1 }} />
+      </Box>
+      <Box display='flex' justifyContent='space-between' flexWrap='wrap' gap={4}>
+        <Box minWidth={200}>
+          <Typography variant='subtitle1' fontWeight='bold' gutterBottom>
+            About DonyAI
+          </Typography>
+          <Typography variant='body2' component={Link} href='#' display='block' color='text.secondary'>
+            Company Overview
+          </Typography>
+          <Typography variant='body2' component={Link} href='#' display='block' color='text.secondary'>
+            Careers
+          </Typography>
+        </Box>
 
-            <Box display='flex' flexDirection='column' gap={2}>
-              <Typography fontSize={18} fontWeight={600}>
-                KẾT NỐI VỚI CHÚNG TÔI
-              </Typography>
-              <Box display='flex' gap={2}>
-                {/* <img src={ICFacebook} width={30} height={30} alt="Facebook" />
-                <img src={ICInstagram} width={30} height={30} alt="Instagram" />
-                <img src={ICZalo} width={35} height={35} alt="Zalo" /> */}
-              </Box>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid size={{ xs: 12, sm: 6, md: 6 }}>
-          <Box display='flex' flexDirection='column' gap={2}>
-            <Typography fontSize={18} fontWeight={600}>
-              HỆ THỐNG CỬA HÀNG
-            </Typography>
-            {storeSystems.map((store, idx) => (
-              <Box key={idx}>
-                <Typography fontSize={14} fontWeight={500}>
-                  {store.city}
-                </Typography>
-                <Typography fontSize={14}>{store.address}</Typography>
-              </Box>
-            ))}
-          </Box>
-        </Grid>
+        {/* Connect */}
+        <Box minWidth={250}>
+          <Typography variant='subtitle1' fontWeight='bold' gutterBottom>
+            Connect
+          </Typography>
 
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-          <Box display='flex' flexDirection='column' justifyContent='space-between' height='100%' gap={5}>
-            <Box display='flex' flexDirection='column' gap={2}>
-              <Typography fontSize={18} fontWeight={600}>
-                HỖ TRỢ
-              </Typography>
-              {support.map((item, idx) => (
-                <Link key={idx} href={item.link} underline='none' color='inherit'>
-                  {item.label}
-                </Link>
-              ))}
-            </Box>
+          {/* <Box display="flex" gap={1} mb={1}>
+            <IconButton size="small"><Facebook fontSize="small" /></IconButton>
+            <IconButton size="small"><LinkedIn fontSize="small" /></IconButton>
+          </Box> */}
 
-            <Box display='flex' flexDirection='column' gap={1}>
-              <Typography fontSize={18} fontWeight={600}>
-                ĐẶT HÀNG XUẤT KHẨU
-              </Typography>
-              <Typography fontSize={14} fontWeight={600}>
-                order@mayvietviet.com
-              </Typography>
-            </Box>
+          <Box display='flex' alignItems='center' gap={1} mb={0.5}>
+            {/* <Phone fontSize="small" /> */}
+            <Typography variant='body2'>028 *** ****</Typography>
           </Box>
-        </Grid>
-      </Grid>
+
+          <Box display='flex' alignItems='center' gap={1} mb={0.5}>
+            {/* <Email fontSize="small" /> */}
+            <Typography variant='body2'>career@donyai.vn</Typography>
+          </Box>
+
+          <Box display='flex' alignItems='center' gap={1}>
+            {/* <LocationOn fontSize="small" /> */}
+            <Typography variant='body2'>Ho Chi Minh</Typography>
+          </Box>
+        </Box>
+
+        {/* Contact Us Form */}
+        <Box flex={1} minWidth={300}>
+          <Typography variant='subtitle1' fontWeight='bold' gutterBottom>
+            Contact Us
+          </Typography>
+          <Typography variant='body2' fontWeight={700} gutterBottom>
+            Email
+          </Typography>
+          <TextField fullWidth size='small' placeholder='ex: youremail@gmail.com' variant='outlined' sx={{ mb: 2 }} />
+          <Typography variant='body2' fontWeight={700} gutterBottom>
+            Feedback
+          </Typography>
+          <TextField
+            fullWidth
+            multiline
+            rows={3}
+            placeholder='We’d love to hear your thoughts — share your feedback with us!'
+            variant='outlined'
+          />
+          <Box display='flex' justifyContent='flex-end' mt={2}>
+            <Button
+              variant='outlined'
+              sx={{
+                borderColor: '#FF6A00',
+                color: '#FF6A00',
+                borderRadius: 2,
+                textTransform: 'none',
+                px: 3
+              }}
+            >
+              Send &gt;
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Copyright */}
+      <Typography variant='body2' color='text.secondary' align='left'>
+        ©2025 DONYAI · All rights reserved.
+      </Typography>
     </Box>
   )
 }
