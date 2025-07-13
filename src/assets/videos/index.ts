@@ -1,0 +1,5 @@
+export { default as HeroSectionVideo } from './hero.mp4'
+export { default as Strategy1Video } from './strategy-1.mp4'
+export { default as Strategy2Video } from './strategy-2.mp4'
+export { default as Strategy3Video } from './strategy-3.mp4'
+export { default as TrailVideo } from './trail.mp4'
